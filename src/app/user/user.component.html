@@ -1,0 +1,85 @@
+{{token}}
+
+
+
+
+
+<!---->
+
+
+<div class="container" style="background-color:rgb(184, 213, 221)">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#">User Registration Form</a>
+    </div>
+  </nav>
+
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <td>
+        <div class="form-group">
+          <input type="text" class="form-control" [(ngModel)]="name" placeholder="Enter your name" aria-describedby="sizing-addon2">
+        </div>
+      </td>
+      <td class="col-md-3"></td>
+    </tr>
+  
+    <tr>
+      <th>Email</th>
+      <td>
+        <div class="form-group">
+          <input type="text" class="form-control" [(ngModel)]="email" placeholder="Enter your Email">
+        </div>
+      </td>
+      <td class="col-md-3"></td>
+    </tr>
+    <tr>
+    <th>Address</th>
+    <td>
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="address" placeholder="Enter your Address. [This field is validation free]" aria-describedby="sizing-addon2">
+      </div>
+    </td>
+    <td class="col-md-3"></td>
+  </tr>
+    <tr>
+      <th></th>
+      <td></td>
+      <td class="col-md-5">
+        <button type="submit" (click)="addUser()" class="btn btn-primary">Add</button>
+        <button type="submit" (click)="open()" class="btn btn-primary" id="opener">open</button>
+
+        <div id="dialog" title="Basic dialog">
+          <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+        </div>
+        <!--<div id="dialog" title="Basic dialog">  halohalohlalhalhalhalhal </div>-->
+      </td>
+    </tr>
+  </table>
+</div>
+
+<!--userlist-->
+<div class="container">
+  <table class="table">
+    <tr>
+    
+      <th>Name</th>
+      <th>Address</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+
+    <tr *ngFor= "let o of this.userlist; let i = index">
+     
+      <td>{{o.name}}</td>
+      <td>{{o.address}}</td>
+      <td>{{o.email}}</td>
+      <td>
+        <button type="submit" class="btn btn-success">Edit</button>
+        <button type="submit" (click)="deleteUser(o.id)" class="btn btn-danger">Remove</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
